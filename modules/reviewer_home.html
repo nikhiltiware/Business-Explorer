@@ -1,0 +1,130 @@
+<div class='row padding-50 padding-85-top'>
+    <div class="panel panel-default ">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Panel heading</div>
+        <div class="panel-body">
+
+
+
+            <div ng-controller="reviewerHomeController as tabsCtrl">
+                <div class="panel panel-default col-xs-3 " style="padding-right: 0px; margin-right: 20px">
+                    <div class="panel-body" style="padding: 15px 0px 0px 0px">
+                        <ul class="nav nav-pills nav-stacked " ng-init="this.initializer()">
+                            <li ng-class="{ active: tabsCtrl.isSelected(1)}"><a href ng-click="tabsCtrl.selectTab(1) ; tabsCtrl.click2ndEvent('','Food',1000)" data-toggle="pill">Food</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(2)}"><a href ng-click="tabsCtrl.selectTab(2); tabsCtrl.click2ndEvent('','Restaurant',1000)" data-toggle="pill">Restaurants</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(3)}"><a href ng-click="tabsCtrl.selectTab(3); tabsCtrl.click2ndEvent('','Shopping',1000)" data-toggle="pill">Shopping</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(4)}"><a href ng-click="tabsCtrl.selectTab(4);; tabsCtrl.click2ndEvent('','Active Life',1000)" data-toggle="pill">Active Life</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(5)}"><a href ng-click="tabsCtrl.selectTab(5);; tabsCtrl.click2ndEvent('','Arts and Entertainment',1000)" data-toggle="pill">Arts & Entertainment</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(6)}"><a href ng-click="tabsCtrl.selectTab(6);; tabsCtrl.click2ndEvent('','Automotive',1000)" data-toggle="pill">Automotive</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(7)}"><a href ng-click="tabsCtrl.selectTab(7);; tabsCtrl.click2ndEvent('','Beauty and Spas
+',1000)" data-toggle="pill">Beauty & Spas</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(8)}"><a href ng-click="tabsCtrl.selectTab(8);; tabsCtrl.click2ndEvent('','Education',1000)" data-toggle="pill">Education</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(9)}"><a href ng-click="tabsCtrl.selectTab(9);; tabsCtrl.click2ndEvent('','Event Planning and Services',1000)" data-toggle="pill">Event Planning & Services</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(10)}"><a href ng-click="tabsCtrl.selectTab(10);; tabsCtrl.click2ndEvent('','Health and Medical',1000)" data-toggle="pill">Health & Medical</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(11)}"><a href ng-click="tabsCtrl.selectTab(11);; tabsCtrl.click2ndEvent('','Home Services',1000)" data-toggle="pill">Home Services</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(12)}"><a href ng-click="tabsCtrl.selectTab(12);; tabsCtrl.click2ndEvent('','Local Services',1000)" data-toggle="pill">Local Services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel panel-default col-xs-4 " style="margin-right:20px; padding: 0px;">
+                    <div class="panel-heading">Top Reviewers</div>
+                    <div class="panel-body" style="max-height: 574px ">
+                        <!--overflow-y: scroll;">-->
+
+                        <div class="tab-content col-xs-8">
+                            <div class="tabsCtrl">
+                                <ul class="media-list">
+                                    <li class="media " ng-repeat="reviewer in reviewers">
+                                        
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
+                                            </a>
+                                        </div>
+                                        <div class="media-body" ng-click="tabsCtrl.openReviewerProfile(reviewer.USER_ID)">
+                                            <h4 class="media-heading">{{reviewer.NAME}}</h4>
+                                            <div style="padding: 5px">
+                                                <span style="padding: 5px">
+                                                    <i class="glyphicon glyphicon-user"
+                                                    style="padding-right:5px"></i>{{reviewer.FRIENDS_COUNT}}</span>
+                                                <span style="padding: 5px"><i class="glyphicon glyphicon-pencil"
+                                                    style="padding-right:5px"></i>
+                                                    {{reviewer.REVIEW_COUNT}}</span>
+                                            </div>
+                                            <!--
+<span class="label label-danger">{{business.label}}</span>
+<span class="badge">{{dish.price | currency}}</span>
+-->
+                                            <!--<uib-rating ng-model=business.STARS max=5 read-only=true></uib-rating>-->
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default col-xs-4 " style="padding: 0px;">
+                    <div class="panel-heading">Elite Reviewers</div>
+                    <div class="panel-body" style="max-height: 574px ">
+                        <!--overflow-y: scroll;">-->
+
+                        <div class="tab-content col-xs-8">
+                            <div class="tabsCtrl">
+                                <ul class="media-list">
+                                    <li class="media " ng-repeat="elite in elites">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">{{elite.NAME}}</h4>
+                                            <div style="padding: 5px">
+                                                <span style="padding: 5px">
+                                                    <i class="glyphicon glyphicon-user"
+                                                    style="padding-right:5px"></i>{{elite.FRIENDS_COUNT}}</span>
+                                                <span style="padding: 5px"><i class="glyphicon glyphicon-pencil"
+                                                    style="padding-right:5px"></i>
+                                                    {{elite.REVIEW_COUNT}}</span>
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- tab content -->
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+<div class="padding-50 padding-85-top" ng-controller="businessProfileController as profileCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="only-bottom-margin">{{businessData.NAME}}</h1>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 activity-mini">
+                            <uib-rating ng-model="businessData.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
+                            <span class="">{{businessData.REVIEW_COUNT}} Reviews</span>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
+              display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
+                        </div>
+                        <div class="col-md-8">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="activity-mini">
+                                        <i class="glyphicon glyphicon-globe text-muted"></i> {{businessData.FULL_ADDRESS}}
+                                    </div>
+                                    <br>
+
+                                </div>
+                                <div class="col-md-6">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>More business info</h3>
+                    <hr>
+                    <div class="row" ng-repeat="info in businessInfo">
+                        <dt class="col-xs-6">
+                                {{info.key}}
+                            </dt>
+                        <dd>
+                            {{info.value}}
+                        </dd>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <uib-tabset active="active">
+                        <uib-tab index="0" heading="Reviews">
+                            <div class="row" ng-repeat="review in reviewData">
+                                <div class="col-xs-12">
+                                    </br>
+                                    {{review.NAME}}
+                                    <div class="col-md-12 activity-mini">
+                                        <uib-rating ng-model="review.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                                        <span class="padding-5-left">{{review.REVIEW_DATE}}</span>
+
+                                    </div>
+                                    </br>
+                                    {{review.TEXT}}
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Rating Distribution">
+                            <div class="row" ng-controller="businessProfileChartsController as businessChartCtrl">
+                                <div class="col-xs-12" ng-if="isBusinessChartDataLoaded">
+                                    <nvd3 options="options" data="data"></nvd3>
+                                </div>
+
+
+                            </div>
+
+
+
+
+                        </uib-tab>
+                    </uib-tabset>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

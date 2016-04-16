@@ -1,0 +1,165 @@
+
+
+<div class="row padding-50 padding-85-top" ng-controller="userProfileController as profileCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img id="profilePic" class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
+              display:block; margin:auto;" src="images/profileimage.png">
+                        </div>
+                        <div class="col-md-4">
+                            <h1 class="only-bottom-margin">{{reviewerData.NAME}}</h1>
+                            </br>
+
+                            <i class="glyphicon glyphicon-user text-muted"></i>  <strong>{{friendsCount}}</strong> Friends
+                            <i class="glyphicon glyphicon-star text-muted padding-5-left"></i>  <strong>{{reviewerData.REVIEW_COUNT}}</strong> Reviews
+                        </div>
+
+                        <div class="col-md-4">
+                            </br>
+                            </br>
+                            <span>Reviewing Since : <strong>{{reviewerData.REVIEWING_SINCE}}</strong></span>
+                            </br>
+                            <span>Compliments :<strong>{{reviewerData.COMPLIMENTS_COOL + reviewerData.COMPLIMENTS_HOT + reviewerData.COMPLIMENTS_CUTE +reviewerData.COMPLIMENTS_FUNNY}}</strong></span>
+                            </br>
+                            <span>Fans :<strong>{{reviewerData.FANS}}</strong></span>
+                            </br>
+                            <span>Review Votes:</span>
+                            </br>
+                            <div class="activity-mini padding-5-left">
+                                <i class="glyphicon glyphicon-asterisk text-muted"></i><span class="padding-5-left"> Useful :</span>  <strong>{{reviewerData.VOTES_USEFUL}}</strong>
+                                </br>
+                                <i class="glyphicon glyphicon-leaf text-muted"></i><span class="padding-5-left"> Cool :</span>  <strong>{{reviewerData.VOTES_COOL}}</strong>
+                                </br>
+                                <i class="glyphicon glyphicon-gift text-muted"></i><span class="padding-5-left"> Funny :</span>  <strong>{{reviewerData.VOTES_FUNNY}}</strong>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row" ng-controller="UserProfileTabsController as tabsCtrl">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div>
+                        <ul class="nav nav-pills nav-stacked ">
+                            <li ng-class="{ active: tabsCtrl.isSelected(1)}"><a href ng-click="tabsCtrl.selectTab(1) ; tabsCtrl.click2ndEvent('','Food',1000)" data-toggle="pill">Profile</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(2)}"><a href ng-click="tabsCtrl.selectTab(2); tabsCtrl.click2ndEvent('','Restaurants',1000)" data-toggle="pill">Reviews</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(3)}"><a href ng-click="tabsCtrl.selectTab(3); tabsCtrl.getTips()" data-toggle="pill">Tips</a>
+                            </li>
+                            <li ng-class="{ active: tabsCtrl.isSelected(4)}"><a href ng-click="tabsCtrl.selectTab(4); tabsCtrl.getFriends()" data-toggle="pill">Friends</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="profileTab" ng-show="tabsCtrl.isSelected(1)" ng-controller="userProfileChartsController as chartsCtrl">
+                        <div class="col-xs-12" ng-if="isDataLoaded">
+                            <nvd3 options="options" data="data"></nvd3>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <div id="reviewTab" ng-show="tabsCtrl.isSelected(2)">
+
+                        <ul class="media-list">
+                            <li class="media "  ng-repeat="review in userReviews">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="images/category_food.png" alt="food">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">{{review.NAME}}</div>
+
+                                    <uib-rating ng-model=review.STARS max=5 read-only=true></uib-rating> <span>{{review.REVIEW_DATE}}</span>
+                                    </br>
+                                    <div class="media-heading">{{review.TEXT}}</div>
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="tipTab" ng-show="tabsCtrl.isSelected(3)">
+
+                        <ul class="media-list">
+                            <li class="media " ng-repeat="tip in userTips">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="images/category_food.png" alt="food">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">{{tip.NAME}}</div>
+
+                                    <uib-rating ng-model=tip.STARS max=5 read-only=true></uib-rating> <span>{{tip.TIP_DATE}}</span>
+                                    </br>
+                                    <div class="media-heading"><strong>{{tip.LIKES}}</strong> Likes</div>
+
+                                    <div class="media-heading">{{tip.TEXT}}</div>
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div id="friendsTab" ng-show="tabsCtrl.isSelected(4)">
+                        <ul class="media-list">
+                            <li class="media " ng-repeat="friend in friends">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{{friend.NAME}}</h4>
+                                    <div style="padding: 5px">
+                                        <span style="padding: 5px">
+                                                    <i class="glyphicon glyphicon-user"
+                                                    style="padding-right:5px"></i>{{friend.FRIENDS_COUNT}} Friends</span>
+                                        <span style="padding: 5px"><i class="glyphicon glyphicon-pencil"
+                                                    style="padding-right:5px"></i>
+                                                    {{friend.REVIEW_COUNT}} Reviews</span>
+                                    </div>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
