@@ -54,6 +54,17 @@
             vertical-align: middle;
             float: none;
         }
+        .trendsHeading {
+            text-align: -webkit-center;
+            margin: 15px 0;
+            font-size: 40px;
+        }
+        .padding-40-top {
+            padding-top: 40px;
+        }
+        .no-padding-left {
+            padding-left: 0px;
+        }
     </style>
     <!-- Custom CSS -->
     <link href="css/agency.css" rel="stylesheet">
@@ -70,7 +81,7 @@
     <script src="js/angular-ui-router.min.js"></script>
     <script src="js/ui-bootstrap-tpls-1.2.5.js"></script>
     <script src="js/checklist-model.js"></script>
-     <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
     <!--   References For charts-->
     <script src="charts/d3/d3.min.js"></script>
     <script src="charts/nvd3/nv.d3.js"></script>
@@ -90,6 +101,10 @@
     <script src="modules/trendsHomeController.js"></script>
     <script src="modules/WeekMonthChartController.js"></script>
     <script src="modules/businessFilterController.js"></script>
+    <script src="modules/dailyTrendsHourCategoryDistributionController.js"></script>
+    <script src="modules/hourlyTrendsPieChartController.js"></script>
+    <script src="modules/businessCategoryTrendsController.js"></script>
+    <script src="modules/hourlyCategoriesCheckinTrendsController.js"></script>
 
 
 
@@ -125,42 +140,42 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
 
 
-                    <div class="padding-30-left col-xs-2 navbar-brand page-scroll">Start Exploring</div>
-                    <div class="col-xs-3 vcenter">
-                        <input ng-if="!isHome" data-toggle="dropdown" type="text" class="form-control" placeholder="Find">
-                    </div>
-                    <div class="col-xs-2 vcenter">
+                <div class="padding-30-left col-xs-2 navbar-brand page-scroll">Start Exploring</div>
+                <div class="col-xs-3 vcenter">
+                    <input ng-if="!isHome" data-toggle="dropdown" type="text" class="form-control" placeholder="Find">
+                </div>
+                <div class="col-xs-2 vcenter">
 
-                        <input ng-if="!isHome" ng-model="$root.searchCities" data-toggle="dropdown" ng-click="openCityDropDown()" type="text" class="form-control" placeholder="City">
-                        <ul ng-if="!isHome" class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
+                    <input ng-if="!isHome" ng-model="$root.searchCities" data-toggle="dropdown" ng-click="openCityDropDown()" type="text" class="form-control" placeholder="City">
+                    <ul ng-if="!isHome" class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
                         <li role="menuitem" class="listOfCities" ng-repeat="x in cities | filter: searchCities" ng-click="setSearchBox(x)">{{x}}</li>
                     </ul>
-                    </div>
+                </div>
 
-                  <div class="vcenter">
-                      <button ng-if="!isHome" type="button" ng-click="applyBusinessFilter()" class="btn btn-primary fa fa-search"></button>
+                <div class="vcenter">
+                    <button ng-if="!isHome" type="button" ng-click="applyBusinessFilter()" class="btn btn-primary fa fa-search"></button>
 
                 </div>
-                    <div class="col-xs-4 vcenter">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li class="hidden">
-                                    <a href="#page-top"></a>
-                                </li>
-                                <li ng-click="setHome()"><a ui-sref="home">Home</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll mouse-pointer" ng-click="validateLocation(1)">Business</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll mouse-pointer" ng-click="validateLocation(2)">Trends</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll mouse-pointer" ng-click="validateLocation(3)">Reviewer</a>
-                                </li>
+                <div class="col-xs-4 vcenter">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li ng-click="setHome()"><a ui-sref="home">Home</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll mouse-pointer" ng-click="validateLocation(1)">Business</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll mouse-pointer" ng-click="validateLocation(2)">Trends</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll mouse-pointer" ng-click="validateLocation(3)">Reviewer</a>
+                        </li>
 
-                            </ul>
+                    </ul>
 
-                    </div>
+                </div>
 
 
 
