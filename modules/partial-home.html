@@ -1,11 +1,11 @@
 
   
-    <section id="services" ng-controller="homeNavController">
+    <section id="services">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <div class="dropdown">
-                    <input ng-model="searchCities" data-toggle="dropdown" ng-click="citiesList=true"  type="text" class="form-control" placeholder="Search">
+                    <input ng-model="$root.searchCities" data-toggle="dropdown" ng-click="openCityDropDown()"  type="text" class="form-control" placeholder="Search">
                     <ul class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
                         <li role="menuitem" class="listOfCities" ng-repeat="x in cities | filter: searchCities" ng-click="setSearchBox(x)">{{x}}</li>
                     </ul>

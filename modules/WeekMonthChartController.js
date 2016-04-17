@@ -50,8 +50,8 @@ businessApp.controller('WeekMonthChartController', function($scope, $http) {
         $scope.WeeklyChartoptions = {
             chart: {
                 type: 'discreteBarChart',
-                width :600,
-                height: 450,
+                width :500,
+                height: 350,
                 margin: {
                     top: 20,
                     right: 20,

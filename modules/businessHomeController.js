@@ -1,6 +1,6 @@
 businessApp.controller('businessHomeController', function($scope, $rootScope, $http, $stateParams, $state) {
     this.tab = 1;
-    var city = 'Las Vegas';
+    var city = $rootScope.searchCities;
     var category = 'Food';
     var review_count_threshold = 0;
     $rootScope.isHome = false;
@@ -8,6 +8,7 @@ businessApp.controller('businessHomeController', function($scope, $rootScope, $h
 
     var initializer = function() {
         var url = 'http://localhost:8080/demoproject/webapi/business/' + city + '/' + category + '/' + review_count_threshold;
+        console.log(url);
         $http.get(url).success(function(data) {
             $scope.businesses = data;
         }).error(function(data) {
@@ -19,10 +20,11 @@ businessApp.controller('businessHomeController', function($scope, $rootScope, $h
 
 
 
-    this.click2ndEvent = function(city, category, review_count) {
+    this.click2ndEvent = function(cities, category, review_count) {
 
-        var city = 'Las Vegas';
+        //var city = 'Las Vegas';
         //this.category = category;
+
         this.review_count_threshold = 0;
         var url = 'http://localhost:8080/demoproject/webapi/business/' + city + '/' + category + '/' + this.review_count_threshold;
 

@@ -29,7 +29,6 @@
         .padding-50 {
             padding: 50px
         }
-        
         .padding-30-left {
             padding-left: 30px
         }
@@ -37,7 +36,7 @@
             padding-top: 85px
         }
         .listOfCities {
-            padding:10px;
+            padding: 10px;
         }
         .listOfCities:hover {
             background-color: cornflowerblue;
@@ -49,6 +48,11 @@
         }
         .mouse-pointer {
             cursor: pointer;
+        }
+        .vcenter {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
         }
     </style>
     <!-- Custom CSS -->
@@ -113,38 +117,52 @@
     <div ng-controller="homeController">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
-            <div class="container">
+            <div class="row">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Start Exploring</a>
+
+
+                    <div class="padding-30-left col-xs-2 navbar-brand page-scroll">Start Exploring</div>
+                    <div class="col-xs-3 vcenter">
+                        <input ng-if="!isHome" data-toggle="dropdown" type="text" class="form-control" placeholder="Find">
+                    </div>
+                    <div class="col-xs-2 vcenter">
+
+                        <input ng-if="!isHome" ng-model="$root.searchCities" data-toggle="dropdown" ng-click="openCityDropDown()" type="text" class="form-control" placeholder="City">
+                        <ul ng-if="!isHome" class="dropdown-menu col-md-12 list-height" role="menu" ng-show="citiesList">
+                        <li role="menuitem" class="listOfCities" ng-repeat="x in cities | filter: searchCities" ng-click="setSearchBox(x)">{{x}}</li>
+                    </ul>
+                    </div>
+
+                  <div class="vcenter">
+                      <button ng-if="!isHome" type="button" class="btn btn-primary fa fa-search"></button>
+
                 </div>
+                    <div class="col-xs-4 vcenter">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="hidden">
+                                    <a href="#page-top"></a>
+                                </li>
+                                <li ng-click="setHome()"><a ui-sref="home">Home</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" ui-sref="businessHome">Business</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" ui-sref="reviewerHome">Reviewer</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#team">Team</a>
+                                </li>
+
+                            </ul>
+
+                    </div>
+
+
+
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li ng-click="setHome()"><a ui-sref="home">Home</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" ui-sref="businessHome">Business</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" ui-sref="reviewerHome">Reviewer</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#team">Team</a>
-                        </li>
 
-                    </ul>
-                </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container-fluid -->

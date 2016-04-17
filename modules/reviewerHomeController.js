@@ -1,13 +1,13 @@
 businessApp.controller('reviewerHomeController', function($scope, $rootScope, $http, $stateParams, $state) {
     this.tab = 1;
-    var city = 'Las Vegas';
+    var city = $rootScope.searchCities;
     var category = 'Food';
     var review_count_threshold = 0;
     $rootScope.isHome = false;
 
 
     var initializer = function() {
-        var url = 'http://localhost:8080/demoproject/webapi/reviewer/home/Las Vegas/Food/top_reviewer/5';
+        var url = 'http://localhost:8080/demoproject/webapi/reviewer/home/'+city+'/Food/top_reviewer/5';
 
         $http.get(url).success(function(data) {
             $scope.reviewers = data;
@@ -16,7 +16,7 @@ businessApp.controller('reviewerHomeController', function($scope, $rootScope, $h
             $scope.reviewers = data;
         });
 
-        var url2 = 'http://localhost:8080/demoproject/webapi/reviewer/home/Las Vegas/Food/elite_reviewer/5';
+        var url2 = 'http://localhost:8080/demoproject/webapi/reviewer/home/'+city+'/Food/elite_reviewer/5';
 
         $http.get(url2).success(function(data) {
             $scope.elites = data;
@@ -49,9 +49,9 @@ businessApp.controller('reviewerHomeController', function($scope, $rootScope, $h
 
     }
 
-    this.click2ndEvent = function(city, category, review_count) {
+    this.click2ndEvent = function(cities, category, review_count) {
 
-        var city = 'Las Vegas';
+        //var city = 'Las Vegas';
         //this.category = category;
         this.review_count_threshold = 5;
         var url = 'http://localhost:8080/demoproject/webapi/reviewer/home/' + city + '/' + category + '/top_reviewer/' + this.review_count_threshold;
