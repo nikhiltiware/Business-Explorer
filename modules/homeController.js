@@ -31,4 +31,10 @@ businessApp.controller('homeController', function($scope, $rootScope, $http, $st
         //$scope.$apply();
     }
 
+    $scope.applyBusinessFilter = function(){
+
+        $state.go('businessFilter');
+
+    }
+
 });

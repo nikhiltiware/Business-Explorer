@@ -69,6 +69,8 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-ui-router.min.js"></script>
     <script src="js/ui-bootstrap-tpls-1.2.5.js"></script>
+    <script src="js/checklist-model.js"></script>
+     <script src="js/angular-animate.min.js"></script>
     <!--   References For charts-->
     <script src="charts/d3/d3.min.js"></script>
     <script src="charts/nvd3/nv.d3.js"></script>
@@ -87,6 +89,8 @@
     <script src="modules/homeNavController.js"></script>
     <script src="modules/trendsHomeController.js"></script>
     <script src="modules/WeekMonthChartController.js"></script>
+    <script src="modules/businessFilterController.js"></script>
+
 
 
 
@@ -134,7 +138,7 @@
                     </div>
 
                   <div class="vcenter">
-                      <button ng-if="!isHome" type="button" class="btn btn-primary fa fa-search"></button>
+                      <button ng-if="!isHome" type="button" ng-click="applyBusinessFilter()" class="btn btn-primary fa fa-search"></button>
 
                 </div>
                     <div class="col-xs-4 vcenter">

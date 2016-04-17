@@ -1,0 +1,159 @@
+<div ng-controller="businessFilterController">
+    <div class="row padding-50 padding-85-top">
+
+        <button type="button" class="btn btn-default" ng-click="toggleCollapsed()">Advanced Search</button>
+        <hr>
+        <div uib-collapse="isCollapsed" ng-model="isCollapsed" class="form-group">
+            <div class="well well-lg row ">
+
+                <div class="col-xs-2">
+                    <h5><b>Food and Drinks</b></h5>
+                    <div ng-repeat="attribute in restaurant_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.food_attributes_checked" checklist-value="attribute.ATTR">{{attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+                    <!---->
+                    <button type="button" class="btn btn-primary" ng-click="search(); toggleCollapsed()">Search</button>
+                    <button type="button" class="btn btn-primary" ng-click="uncheckAll()">Uncheck All</button>
+                </div>
+                <div class="col-xs-2">
+                    <h5><b>Music</b></h5>
+                    <div ng-repeat="music_attribute in music_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.music_attributes_checked" checklist-value="music_attribute.ATTR">{{music_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+                    <h5><b>Ambience</b></h5>
+                    <div ng-repeat="ambience_attribute in ambience_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.ambience_attributes_checked" checklist-value="ambience_attribute.ATTR">{{ambience_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="col-xs-2">
+                    <h5><b>Miscellanious</b></h5>
+                    <div ng-repeat="misc_attribute in misc_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.misc_attributes_checked" checklist-value="misc_attribute.ATTR">{{misc_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+                    <h5><b>Parking</b></h5>
+                    <div ng-repeat="parking_attribute in parking_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.parking_attributes_checked" checklist-value="parking_attribute.ATTR">{{parking_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-2">
+                    <h5><b>Hair</b></h5>
+                    <div ng-repeat="hair_attribute in hair_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.hair_attributes_checked" checklist-value="hair_attribute.ATTR">{{hair_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+                    <h5><b>Good For</b></h5>
+                    <div ng-repeat="gooodfor_attribute in gooodfor_attributes">
+                        <label id="labelStyle" class="checkbox-inline">
+                            <input type="checkbox" checklist-model="checked.gooodfor_attributes_checked" checklist-value="gooodfor_attribute.ATTR">{{gooodfor_attribute.NAME}}</input>
+                        </label>
+
+                    </div>
+
+                </div>
+                <div class="col-xs-2">
+                    <h5><b>Noise Level</b></h5>
+                    <div ng-repeat="noise_attribute in noise_attributes">
+                        <label id="labelStyle">
+                            <input type="radio" name="Noise_Level" value="{{noise_attribute.ATTR}}" ng-model="radio_attributes.noise" />{{noise_attribute.NAME}}
+                        </label>
+
+                    </div>
+                    <h5><b>Attire</b></h5>
+                    <div ng-repeat="attire_attribute in attire_attributes">
+                        <label id="labelStyle">
+                            <input type="radio" name="Attire_Level" value="{{attire_attribute.ATTR}}" ng-model="radio_attributes.attire" />{{attire_attribute.NAME}}
+                        </label>
+
+                    </div>
+                    <h5><b>Wi Fi</b></h5>
+                    <div ng-repeat="wifi_attribute in wifi_attributes">
+                        <label id="labelStyle">
+                            <input type="radio" name="wifi_Level" value="{{wifi_attribute.ATTR}}" ng-model="radio_attributes.wifi" />{{wifi_attribute.NAME}}
+                        </label>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-2">
+                    <h5><b>Price Range</b></h5>
+                    <div ng-repeat="price_attribute in price_attributes">
+                        <label id="labelStyle">
+                            <input type="radio" name="Price_Level" value="{{price_attribute.ATTR}}" ng-model="radio_attributes.price" />{{price_attribute.NAME}}
+                        </label>
+
+                    </div>
+
+                    <h5><b>Ages </b></h5>
+                    <div ng-repeat="age_attribute in age_attributes">
+                        <label id="labelStyle">
+                            <input type="radio" name="age_Level" value="{{age_attribute.ATTR}}" ng-model="radio_attributes.age" />{{age_attribute.NAME}}
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default col-xs-8 ">
+        <div class="panel-body" style="max-height: 574px ">
+            <!--overflow-y: scroll;">-->
+
+            <div class="tab-content col-xs-8">
+                <div class="tabsCtrl">
+                    <ul class="media-list">
+                        <li class="media " ng-repeat="business in BusinessList">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="images/category_food.png" alt="food">
+                                </a>
+                            </div>
+                            <div class="media-body" ng-click="openBusinessProfile(business.BUSINESS_ID)">
+                                <h4 class="media-heading">{{business.NAME}}</h4>
+
+                                <uib-rating ng-model=business.STARS max=5 read-only=true></uib-rating>
+
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+

@@ -1,4 +1,4 @@
-var businessApp = angular.module('businessApp', ['ui.router', 'ui.bootstrap', 'nvd3']);
+var businessApp = angular.module('businessApp', ['ui.router', 'ui.bootstrap', 'nvd3','checklist-model','ngAnimate']);
 
 businessApp.run(function($rootScope) {
     $rootScope.isHome = true;
@@ -45,6 +45,11 @@ businessApp.config(function($stateProvider, $urlRouterProvider) {
     .state('trendsHome', {
         url: '/trendsHome',
         templateUrl: 'modules/trendsHome.html',
+
+    })
+    .state('businessFilter', {
+        url: '/businessFilter',
+        templateUrl: 'modules/businessFilter.html',
 
     })
 });
