@@ -1,4 +1,4 @@
-businessApp.controller('dailyTrendsHourCategoryDistributionController', function($scope, $http) {
+businessApp.controller('dailyTrendsHourCategoryDistributionController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.dailyTrendsHourCategoryDistributionDataLoaded = false;
     $scope.dailyTrendsHourCategoryDistributionStatus = {
@@ -17,7 +17,7 @@ businessApp.controller('dailyTrendsHourCategoryDistributionController', function
     $scope.dailyTrendsHourCategoryDistributionDrawChart = function(day, category) {
 
         // var day='0';
-        var city = 'Las Vegas';
+        var city = $rootScope.searchCities;
         $scope.dailyTrendsHourCategoryDistributionCategory = category;
         //var category = 'Food';
         //  var url1 = 'http://localhost:8080/demoproject/webapi/trends/day_checkin/' + city + '/' + day;

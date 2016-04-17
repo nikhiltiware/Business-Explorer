@@ -1,4 +1,4 @@
-businessApp.controller('businessCategoryTrendsController', function($scope, $http) {
+businessApp.controller('businessCategoryTrendsController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.isbusinessCategoryTrendsDataLoaded = false;
     $scope.businessCategoryTrendsStatus = {
@@ -12,7 +12,7 @@ businessApp.controller('businessCategoryTrendsController', function($scope, $htt
     $scope.businessCategoryTrendsDrawChart = function() {
 
         // var day='0';
-        var city = 'Las Vegas';
+        var city = $rootScope.searchCities;
         var category = 'Food';
         var url1 = 'http://localhost:8080/demoproject/webapi/trends/rating_distribution/'+city;
 

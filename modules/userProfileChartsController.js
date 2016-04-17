@@ -1,4 +1,4 @@
-businessApp.controller('userProfileChartsController', function($scope, $http) {
+businessApp.controller('userProfileChartsController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.isDataLoaded = false;
     var getRatingDist = function() {

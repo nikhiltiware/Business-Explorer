@@ -1,4 +1,4 @@
-businessApp.controller('WeekMonthChartController', function($scope, $http) {
+businessApp.controller('WeekMonthChartController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.isWeeklyDataLoaded = false;
     var getWeelyData = function() {

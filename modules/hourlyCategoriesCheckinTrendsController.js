@@ -1,4 +1,4 @@
-businessApp.controller('hourlyCategoriesCheckinTrendsController', function($scope, $http) {
+businessApp.controller('hourlyCategoriesCheckinTrendsController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.ishourlyCategoriesCheckinTrendsPieChartDataLoaded = false;
     $scope.hourlyCategoriesCheckinTrendsButton1Status = {
@@ -81,7 +81,7 @@ businessApp.controller('hourlyCategoriesCheckinTrendsController', function($scop
     $scope.hourlyCategoriesCheckinTrendsDrawChart = function(day, hour) {
 
         // var day='0';
-        var city = 'Las Vegas';
+        var city = $rootScope.searchCities;
         var url1 = 'http://localhost:8080/demoproject/webapi/trends/hourly_checkin/' + city + '/' + day + '/' + hour;
         //var url2 = 'http://localhost:8080/demoproject/webapi/trends/daily_checkin/' + city + '/' + category;
         $scope.hourlyCategoriesCheckinTrendsHourName = hour;

@@ -1,4 +1,4 @@
-businessApp.controller('hourlyTrendsPieChartController', function($scope, $http) {
+businessApp.controller('hourlyTrendsPieChartController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.ishourlyTrendsPieChartDataLoaded = false;
     $scope.status = {

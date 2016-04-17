@@ -1,4 +1,4 @@
-businessApp.controller('UserProfileTabsController', function($scope, $http) {
+businessApp.controller('UserProfileTabsController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     this.tab = 1;
     var initializer = function() {

@@ -1,4 +1,4 @@
-businessApp.controller('businessProfileChartsController', function($scope, $http) {
+businessApp.controller('businessProfileChartsController', function($scope, $rootScope, $http, $stateParams, $state) {
     
     $scope.isBusinessChartDataLoaded = false;
     var getRatingDist = function() {
@@ -53,4 +53,3 @@ businessApp.controller('businessProfileChartsController', function($scope, $http
 
     getRatingDist();
 });
-                       
