@@ -42,4 +42,9 @@ businessApp.config(function($stateProvider, $urlRouterProvider) {
             }
 
         })
+    .state('trendsHome', {
+        url: '/trendsHome',
+        templateUrl: 'modules/trendsHome.html',
+
+    })
 });
