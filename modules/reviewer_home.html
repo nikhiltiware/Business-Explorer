@@ -1,7 +1,7 @@
 <div class='row padding-50 padding-85-top'>
     <div class="panel panel-default ">
         <!-- Default panel contents -->
-        <div class="panel-heading">Panel heading</div>
+        <div class="col-md-12"><h3>Reviewers in {{$root.searchCities}}</h3></div>
         <div class="panel-body">
 
 
@@ -22,8 +22,7 @@
                             </li>
                             <li ng-class="{ active: tabsCtrl.isSelected(6)}"><a href ng-click="tabsCtrl.selectTab(6);; tabsCtrl.click2ndEvent('','Automotive',1000)" data-toggle="pill">Automotive</a>
                             </li>
-                            <li ng-class="{ active: tabsCtrl.isSelected(7)}"><a href ng-click="tabsCtrl.selectTab(7);; tabsCtrl.click2ndEvent('','Beauty and Spas
-',1000)" data-toggle="pill">Beauty & Spas</a>
+                            <li ng-class="{ active: tabsCtrl.isSelected(7)}"><a href ng-click="tabsCtrl.selectTab(7);; tabsCtrl.click2ndEvent('','Beauty and Spas',1000)" data-toggle="pill">Beauty & Spas</a>
                             </li>
                             <li ng-class="{ active: tabsCtrl.isSelected(8)}"><a href ng-click="tabsCtrl.selectTab(8);; tabsCtrl.click2ndEvent('','Education',1000)" data-toggle="pill">Education</a>
                             </li>
@@ -40,7 +39,7 @@
                 </div>
 
                 <div class="panel panel-default col-xs-4 " style="margin-right:20px; padding: 0px;">
-                    <div class="panel-heading">Top Reviewers</div>
+                    <div class="panel-heading"><b>Top Reviewers</b></div>
                     <div class="panel-body" style="max-height: 574px ">
                         <!--overflow-y: scroll;">-->
 
@@ -51,18 +50,21 @@
                                         
                                         <div class="media-left">
                                             <a href="#">
-                                                <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
+                                                <img class="media-object" src="images/user{{$index+2}}.jpg" style="width:80px; height: 80px" alt="food">
                                             </a>
                                         </div>
                                         <div class="media-body" ng-click="tabsCtrl.openReviewerProfile(reviewer.USER_ID)">
                                             <h4 class="media-heading">{{reviewer.NAME}}</h4>
-                                            <div style="padding: 5px">
+                                            <div style="padding-left: 15px;padding-top: 10px">
+                                                <div class="row">
                                                 <span style="padding: 5px">
                                                     <i class="glyphicon glyphicon-user"
-                                                    style="padding-right:5px"></i>{{reviewer.FRIENDS_COUNT}}</span>
+                                                    style="padding-right:5px"></i>{{reviewer.FRIENDS_COUNT}} friends</span>
+                                                </div>
+                                                <div class="row">
                                                 <span style="padding: 5px"><i class="glyphicon glyphicon-pencil"
-                                                    style="padding-right:5px"></i>
-                                                    {{reviewer.REVIEW_COUNT}}</span>
+                                                    style="padding-right:5px"></i>{{reviewer.REVIEW_COUNT}} reviews</span>
+                                                </div>
                                             </div>
                                             <!--
 <span class="label label-danger">{{business.label}}</span>
@@ -78,7 +80,7 @@
                     </div>
                 </div>
                 <div class="panel panel-default col-xs-4 " style="padding: 0px;">
-                    <div class="panel-heading">Elite Reviewers</div>
+                    <div class="panel-heading"><b>Elite Reviewers</b></div>
                     <div class="panel-body" style="max-height: 574px ">
                         <!--overflow-y: scroll;">-->
 
@@ -88,18 +90,21 @@
                                     <li class="media " ng-repeat="elite in elites">
                                         <div class="media-left">
                                             <a href="#">
-                                                <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
+                                                <img class="media-object" src="images/user{{$index+1}}.jpg" style="width:80px; height: 80px" alt="food">
                                             </a>
                                         </div>
                                         <div class="media-body">
                                             <h4 class="media-heading">{{elite.NAME}}</h4>
-                                            <div style="padding: 5px">
+                                            <div style="padding-left: 15px;padding-top:10px">
+                                            <div class="row">
                                                 <span style="padding: 5px">
                                                     <i class="glyphicon glyphicon-user"
-                                                    style="padding-right:5px"></i>{{elite.FRIENDS_COUNT}}</span>
+                                                    style="padding-right:5px"></i>{{elite.FRIENDS_COUNT}} friends</span>
+                                            </div>
+                                            <div class="row">
                                                 <span style="padding: 5px"><i class="glyphicon glyphicon-pencil"
-                                                    style="padding-right:5px"></i>
-                                                    {{elite.REVIEW_COUNT}}</span>
+                                                    style="padding-right:5px"></i>{{elite.REVIEW_COUNT}} reviews</span>
+                                            </div>
                                             </div>
 
                                         </div>
