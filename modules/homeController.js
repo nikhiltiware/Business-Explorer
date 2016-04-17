@@ -17,6 +17,8 @@ businessApp.controller('homeController', function($scope, $rootScope, $http, $st
            else{
                $state.go('reviewerHome');
            }
+        }else{
+            alert('Enter your Location First...')
         }
 
     }
