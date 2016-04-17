@@ -44,7 +44,7 @@ businessApp.controller('hourlyTrendsPieChartController', function($scope, $rootS
                 chart: {
                     type: 'pieChart',
                     height: 500,
-                    width: 500,
+                    width: 800,
                     x: function(d) {
                         return d.CATEGORY;
                     },
@@ -62,7 +62,8 @@ businessApp.controller('hourlyTrendsPieChartController', function($scope, $rootS
                             bottom: 5,
                             left: 0
                         }
-                    }
+                    },
+                    legendPosition: "right"
                 }
             };
 

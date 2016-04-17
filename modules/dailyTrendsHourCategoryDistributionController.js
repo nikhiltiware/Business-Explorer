@@ -55,10 +55,10 @@ businessApp.controller('dailyTrendsHourCategoryDistributionController', function
 
                 chart: {
                     type: 'lineChart',
-                    height: 450,
-                    width: 550,
+                    height: 350,
+                    width: 450,
                     margin: {
-                        top: 10,
+                        top: 50,
                         right: 20,
                         bottom: 40,
                         left: 55
@@ -69,6 +69,7 @@ businessApp.controller('dailyTrendsHourCategoryDistributionController', function
                     y: function(d) {
                         return d.y;
                     },
+                    forceY : [0, 10],
                     useInteractiveGuideline: true,
                     dispatch: {
                         stateChange: function(e) {
