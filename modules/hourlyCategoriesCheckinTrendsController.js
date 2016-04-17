@@ -113,7 +113,7 @@ businessApp.controller('hourlyCategoriesCheckinTrendsController', function($scop
                 chart: {
                     type: 'pieChart',
                     height: 500,
-                    width: 500,
+                    width: 800,
                     x: function(d) {
                         return d.CATEGORY;
                     },
@@ -131,7 +131,8 @@ businessApp.controller('hourlyCategoriesCheckinTrendsController', function($scop
                             bottom: 5,
                             left: 0
                         }
-                    }
+                    },
+                    legendPosition: "right"
                 }
             };
 

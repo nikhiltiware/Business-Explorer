@@ -1,9 +1,21 @@
 businessApp.controller('WeekMonthChartController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.isWeeklyDataLoaded = false;
-    var getWeelyData = function() {
+    this.categoryList = ["Food", "Restaurants", "Shopping", "Active Life", "Arts and Entertainment", "Automotive", "Beauty and Spas", "Education", "Event Planning and Services", "Health and Medical", "Home Services", "Local Services"];
+    $scope.weeklyTrendsHourCategoryDistributionCategory = 'Food';
+    $scope.weeklyTrendsHourCategoryDistributionButton2Status = {
+        isopen: false
+    };
+    $scope.weeklyTrendsHourCategoryDistributionDrawChart = function(category) {
 
-        var url = 'http://localhost:8080/demoproject/webapi/trends/weekly_checkin/Las Vegas/Food';
+        getWeelyData(category);
+
+    };
+    var getWeelyData = function(category) {
+        var city = $rootScope.searchCities;
+         $scope.dailyTrendsHourCategoryDistributionCategory = category;
+
+        var url = 'http://localhost:8080/demoproject/webapi/trends/weekly_checkin/'+ city + '/' + category;
 
         $http.get(url).success(function(data) {
             this.weeklyData = data;
@@ -50,8 +62,8 @@ businessApp.controller('WeekMonthChartController', function($scope, $rootScope, 
         $scope.WeeklyChartoptions = {
             chart: {
                 type: 'discreteBarChart',
-                width :500,
-                height: 350,
+                width :600,
+                height: 450,
                 margin: {
                     top: 20,
                     right: 20,
@@ -68,7 +80,7 @@ businessApp.controller('WeekMonthChartController', function($scope, $rootScope, 
                 valueFormat: function(d) {
                     return d3.format('d')(d);
                 },
-                duration: 5000,
+                duration: 2000,
                 xAxis: {
                     axisLabel: 'Day'
                 },
@@ -89,6 +101,7 @@ businessApp.controller('WeekMonthChartController', function($scope, $rootScope, 
 
     }
 
-    getWeelyData();
+    //getWeelyData();
+    $scope.weeklyTrendsHourCategoryDistributionDrawChart($scope.weeklyTrendsHourCategoryDistributionCategory);
 
 });
