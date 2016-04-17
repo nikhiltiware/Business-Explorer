@@ -1,4 +1,4 @@
-businessApp.controller('businessFilterController', function($scope, $http,$stateParams, $state) {
+businessApp.controller('businessFilterController', function($scope, $rootScope, $http, $stateParams, $state) {
     $scope.isCollapsed = false;
     $scope.checked = {};
     $scope.BusinessList = {};
@@ -314,7 +314,7 @@ businessApp.controller('businessFilterController', function($scope, $http,$state
         searchArray.push("radio_attributes.wifi="+$scope.radio_attributes.wifi);
 
         console.log($scope.radio_attributes.wifi);
-        var url = 'http://localhost:8080/demoproject/webapi/business/business_search/Las Vegas/Food';
+        var url = 'http://localhost:8080/demoproject/webapi/business/business_search/'+$rootScope.searchCities+'/Food';
         var searchParams = searchArray.join();
         console.log(searchParams);
         $http.get(url, {

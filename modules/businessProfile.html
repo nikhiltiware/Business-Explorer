@@ -4,31 +4,31 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-4 text-center">
-                            <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
+                        <img class="img-circle avatar avatar-original" style="-webkit-user-select:none;
                                 display:block; margin:auto;" src="http://robohash.org/sitsequiquia.png?size=120x120">
                     </div>
                     <div class="col-md-8 text-center">
-                     <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="only-bottom-margin pull-left">{{businessData.NAME}}</h1>
-                        </div>
-
-                     </div>
-                     <div class="row only-bottom-margin">
-                        <div class="col-md-12 activity-mini">
-                            <uib-rating class="pull-left" ng-model="businessData.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
-                            <span class="pull-left">{{businessData.REVIEW_COUNT}} Reviews</span>
-
-                        </div>
-                     </div>
-                     <div class="row only-bottom-margin">
-                        <div class="col-md-12">
-                            <div class="activity-mini">
-                                <i class="glyphicon glyphicon-globe text-muted pull-left"></i><span class="pull-left">{{businessData.FULL_ADDRESS}}</span>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="only-bottom-margin pull-left">{{businessData.NAME}}</h1>
                             </div>
-                            <br>
-                         </div>
-                      </div>
+
+                        </div>
+                        <div class="row only-bottom-margin">
+                            <div class="col-md-12 activity-mini">
+                                <uib-rating class="pull-left" ng-model="businessData.STARS" max="5" read-only="true" on-leave="overStar = null" titles="['Poor','Below Average','Average', 'Good' , 'Excellent']" aria-labelledby="default-rating"></uib-rating>
+                                <span class="pull-left">{{businessData.REVIEW_COUNT}} Reviews</span>
+
+                            </div>
+                        </div>
+                        <div class="row only-bottom-margin">
+                            <div class="col-md-12">
+                                <div class="activity-mini">
+                                    <i class="glyphicon glyphicon-globe text-muted pull-left"></i><span class="pull-left">{{businessData.FULL_ADDRESS}}</span>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -63,7 +63,7 @@
                         <uib-tab index="0" heading="Reviews">
                             <div class="row" ng-repeat="review in reviewData">
                                 <div class="col-xs-2 media-left padding-40-top">
-                                            <img class="media-object" src="/images/category_food.png" alt="food">
+                                    <img class="media-object" src="/images/category_food.png" alt="food">
                                 </div>
                                 <div class="col-xs-10">
                                     </br>
@@ -87,6 +87,27 @@
 
                             </div>
 
+
+
+
+                        </uib-tab>
+
+                        <uib-tab index="2" heading="Yearly Rating Trends">
+
+                            <div class="row">
+                                <div ng-controller="monthlyBusinessTrendForBusinessController as ctrl">
+
+                                    <div class="row">
+
+                                        <b class="col-xs-12">The following pie chart displays the average checkins for a particular day for various business                    categories.</b>
+                                    </div>
+
+                                    <div class="col-xs-12" ng-if="ismonthlyBusinessTrendForBusinessDataLoaded ">
+                                        <nvd3 class="with-3d-shadow with-transitions" options="monthlyBusinessTrendForBusinessOptions" data="monthlyBusinessTrendForBusinessData"></nvd3>
+                                    </div>
+
+                                </div>
+                            </div>
 
 
 
