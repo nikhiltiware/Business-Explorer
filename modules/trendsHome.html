@@ -1,0 +1,43 @@
+<div class="row padding-50 padding-85-top" ng-controller="trendsHomeController as trendCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Trends Home
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <uib-tabset active="active">
+                        <uib-tab index="0" heading="Checkin Trends">
+                            <div class="row">
+
+                            </div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Weekly and Monthly Trends">
+                            <div class="row" ng-controller="WeekMonthChartController">
+                                <div class="col-xs-6" ng-if="isWeeklyDataLoaded">
+                                <nvd3 options="WeeklyChartoptions" data="WeeklyChartData"></nvd3>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </uib-tab>
+                    </uib-tabset>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
