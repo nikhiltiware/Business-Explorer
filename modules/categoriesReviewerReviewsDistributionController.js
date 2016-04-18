@@ -61,11 +61,22 @@ var propArray= $scope.categoriesReviewerReviewsDistributionData.map(function(a) 
                     showMaxMin: false
                 },
                 yAxis: {
-                    axisLabel: 'Values',
+                    axisLabel: 'Review Counts',
                     ticks:10,
                     tickFormat: function(d){
                         return d3.format(',.2f')(d);
                     }
+                }
+            },            title: {
+                enable: true,
+                text: 'Review Category Rating Distribution'
+            },
+            subtitle: {
+                enable: true,
+                text: 'This bar chart shows the ratings (No. of Stars) provided by the user to various categories',
+                css: {
+                    'text-align': 'center',
+                    'margin': '10px 13px 0px 7px'
                 }
             }
             };
@@ -73,7 +84,7 @@ var propArray= $scope.categoriesReviewerReviewsDistributionData.map(function(a) 
 
 $scope.categoriesReviewerReviewsDistributionData=[
             {
-                "key": "Series1",
+                "key": "Number of Stars",
                 "color": "#d62728",
                 "values": $scope.categoriesReviewerReviewsDistributionData
             }];

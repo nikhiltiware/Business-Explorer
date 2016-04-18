@@ -33,7 +33,7 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
                 width: 600,
                 margin : {
                     top: 20,
-                    right: 20,
+                    right: 40,
                     bottom: 40,
                     left: 55
                 },
@@ -47,11 +47,13 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
                     tooltipHide: function(e){ console.log("tooltipHide"); }
                 },
                 xAxis: {
-                    axisLabel: 'Date (ms)',
+                    axisLabel: 'Date',
+                    staggerLabels:true,
+                    showMaxMin:false,
                     tickFormat: (function(d) { return d3.time.format('%x')(new Date(d)) })
                 },
                 yAxis: {
-                    axisLabel: 'Average Stars',
+                    axisLabel: 'Average Rating',
                     tickFormat: function(d){
                         return d3.format('.02f')(d);
                     },
@@ -64,11 +66,11 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
             },
             title: {
                 enable: true,
-                text: 'Timeline for business reviews'
+                text: 'Average Rating'
             },
             subtitle: {
-                enable: false,
-                text: 'Subtitle for simple line chart. Lorem ipsum dolor sit amet, at eam blandit sadipscing, vim adhuc sanctus disputando ex, cu usu affert alienum urbanitas.',
+                enable: true,
+                text: 'This line chart shows the popularity or the level of service provided by the business over a time period',
                 css: {
                     'text-align': 'center',
                     'margin': '10px 13px 0px 7px'
@@ -90,7 +92,7 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
 $scope.monthlyBusinessTrendForBusinessData= [
                 {
                     values:  $scope.monthlyBusinessTrendForBusinessData ,      //values - represents the array of {x,y} data points
-                    key: 'Sine Wave', //key  - the name of the series.
+                    key: 'Average Star Rating', //key  - the name of the series.
                     color: '#ff7f0e',  //color - optional: choose your own line color.
                     strokeWidth: 2,
                     classed: 'dashed'

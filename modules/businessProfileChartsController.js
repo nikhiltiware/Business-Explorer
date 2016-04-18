@@ -39,8 +39,39 @@ businessApp.controller('businessProfileChartsController', function($scope, $root
                         return d3.format(',.2f')(d);
                     }
                 }
+            },       title: {
+                enable: true,
+                text: 'Review Rating Distribution'
+            },
+            subtitle: {
+                enable: true,
+                text: 'This bar chart shows the ratings (No. of Stars) provided to the business',
+                css: {
+                    'text-align': 'center',
+                    'margin': '10px 13px 0px 7px'
+                }
             }
         };
+
+var ratingArray=["0","1","2","3","4","5"];
+
+for(var rating of ratingArray){
+var propArray= $scope.businessRatingDist.map(function(a) {return a.STARS;});
+    if( propArray.indexOf(rating) <= -1){
+    $scope.businessRatingDist.push(
+        {
+            "BUSINESS_ID":$scope.businessId,
+            "COUNT":0,
+            "STARS":rating
+
+        }
+    );
+    }
+}
+         $scope.businessRatingDist.sort(function(a, b){
+    return b.STARS - a.STARS;
+});
+
 
         $scope.data = [{
             "key": "Rating Distribution",

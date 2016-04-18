@@ -47,10 +47,10 @@
                             <div class="tabsCtrl">
                                 <ul class="media-list">
                                     <li class="media " ng-repeat="reviewer in reviewers">
-                                        
+
                                         <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/user{{$index+2}}.jpg" style="width:80px; height: 80px" alt="food">
+                                            <a>
+                                                <img class="media-object" src="images/{{$index+1}}.jpg" style="width:80px; height: 80px" alt="food">
                                             </a>
                                         </div>
                                         <div class="media-body" ng-click="tabsCtrl.openReviewerProfile(reviewer.USER_ID)">
@@ -89,11 +89,11 @@
                                 <ul class="media-list">
                                     <li class="media " ng-repeat="elite in elites">
                                         <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="images/user{{$index+1}}.jpg" style="width:80px; height: 80px" alt="food">
+                                            <a >
+                                                <img class="media-object" src="images/{{$index}}.jpg" style="width:80px; height: 80px" alt="food">
                                             </a>
                                         </div>
-                                        <div class="media-body">
+                                        <div class="media-body" ng-click="tabsCtrl.openReviewerProfile(elite.USER_ID)">
                                             <h4 class="media-heading">{{elite.NAME}}</h4>
                                             <div style="padding-left: 15px;padding-top:10px">
                                             <div class="row">

@@ -81,6 +81,34 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
 
             });
 
+        if ($scope.businessData.hasOwnProperty('ATTRIBUTES_BYAPPOINTMENTONLY'))
+            businessInfo.push({
+                "key": "By Appointment Only",
+                "value": $scope.businessData.ATTRIBUTES_BYAPPOINTMENTONLY == "TRUE" ? "Yes" : "No"
+
+            });
+
+        if ($scope.businessData.hasOwnProperty('ATTRIBUTES_WAITERSERVICE'))
+            businessInfo.push({
+                "key": "Waiter Service",
+                "value": $scope.businessData.ATTRIBUTES_GOODFOR_KIDS == "TRUE" ? "Yes" : "No"
+
+            });
+
+        if ($scope.businessData.hasOwnProperty('ATTRIBUTES_PARKINGLOT'))
+            businessInfo.push({
+                "key": "Parking Lot",
+                "value": $scope.businessData.ATTRIBUTES_PARKINGLOT == "TRUE" ? "Available" : "Not Available"
+
+            });
+        if ($scope.businessData.hasOwnProperty('ATTRIBUTES_PARKING_VALET'))
+            businessInfo.push({
+                "key": "Parking Valet",
+                "value": $scope.businessData.ATTRIBUTES_PARKING_VALET == "TRUE" ? "Available" : "Not Available"
+
+            });
+
+
         $scope.businessInfo = businessInfo;
 
 

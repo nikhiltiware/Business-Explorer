@@ -33,16 +33,50 @@ businessApp.controller('userProfileChartsController', function($scope, $rootScop
                     showMaxMin: false
                 },
                 yAxis: {
-                    axisLabel: 'Values',
-                    tickFormat: function(d) {
-                        return d3.format(',.2f')(d);
-                    }
+                    axisLabel: 'Review Count',
+
+                }
+
+            },
+                title: {
+                enable: true,
+                text: 'Review Rating Distribution'
+            },
+            subtitle: {
+                enable: true,
+                text: 'This bar chart shows the ratings (No. of Stars) provided by the user',
+                css: {
+                    'text-align': 'center',
+                    'margin': '10px 13px 0px 7px'
                 }
             }
         };
 
+        var ratingArray=["0","1","2","3","4","5"];
+
+for(var rating of ratingArray){
+var propArray= $scope.userRatingDist.map(function(a) {return a.STARS;});
+    if( propArray.indexOf(rating) <= -1){
+    $scope.userRatingDist.push(
+        {
+            "BUSINESS_ID":$scope.userId,
+            "COUNT":0,
+            "STARS":rating
+
+        }
+    );
+    }
+}
+         $scope.userRatingDist.sort(function(a, b){
+    return b.STARS - a.STARS;
+});
+
+
+
+
+
         $scope.data = [{
-            "key": "Series1",
+            "key": "Ratings Distribution",
             "color": "#337ab7",
             "values": $scope.userRatingDist
         }];
