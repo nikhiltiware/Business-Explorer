@@ -69,7 +69,7 @@ businessApp.controller('dailyTrendsHourCategoryDistributionController', function
                     y: function(d) {
                         return d.y;
                     },
-                    forceY : [0, 10],
+                    forceY : [0, 8],
                     useInteractiveGuideline: true,
                     dispatch: {
                         stateChange: function(e) {

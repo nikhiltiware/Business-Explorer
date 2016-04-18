@@ -13,7 +13,7 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
 
         // var day='0';
         var city = 'Las Vegas';
-        var businessID = 'W3z8TV-MZIYkWgfN6cyJPg';
+        var businessID = $scope.businessId;
         var url1 = 'http://localhost:8080/demoproject/webapi/business/'+businessID+'/monthly_trends';
 
 
@@ -57,6 +57,7 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
                     },
                     axisLabelDistance: -10
                 },
+                forceY : [0, 8],
                 callback: function(chart){
                     console.log("!!! lineChart callback !!!");
                 }
