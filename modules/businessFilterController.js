@@ -2,7 +2,7 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
     $scope.isCollapsed = true;
     $scope.checked = {};
     $scope.BusinessList = {};
-
+    $scope.isDataFound = false;
     $scope.radio_attributes = {};
     $scope.radio_attributes.noise = "";
     $scope.radio_attributes.attire = "";
@@ -289,10 +289,10 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
         $scope.checked.hair_attributes_checked = [];
         $scope.checked.gooodfor_attributes_checked = [];
         $scope.radio_attributes.noise = "";
-    $scope.radio_attributes.attire = "";
-    $scope.radio_attributes.price = "";
-    $scope.radio_attributes.age = "";
-    $scope.radio_attributes.wifi ="";
+        $scope.radio_attributes.attire = "";
+        $scope.radio_attributes.price = "";
+        $scope.radio_attributes.age = "";
+        $scope.radio_attributes.wifi = "";
     };
 
     $scope.toggleCollapsed = function() {
@@ -307,16 +307,16 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
         searchArray = searchArray.concat($scope.checked.misc_attributes_checked);
         searchArray = searchArray.concat($scope.checked.hair_attributes_checked);
         searchArray = searchArray.concat($scope.checked.gooodfor_attributes_checked);
-        searchArray.push("radio_attributes.noise="+$scope.radio_attributes.noise);
-        searchArray.push("radio_attributes.attire="+$scope.radio_attributes.attire);
-        searchArray.push("radio_attributes.price="+$scope.radio_attributes.price);
-        searchArray.push("radio_attributes.age="+$scope.radio_attributes.age);
-        searchArray.push("radio_attributes.wifi="+$scope.radio_attributes.wifi);
-        if(angular.isUndefined($rootScope.findString)){
-            $rootScope.findString= "Food";
+        searchArray.push("radio_attributes.noise=" + $scope.radio_attributes.noise);
+        searchArray.push("radio_attributes.attire=" + $scope.radio_attributes.attire);
+        searchArray.push("radio_attributes.price=" + $scope.radio_attributes.price);
+        searchArray.push("radio_attributes.age=" + $scope.radio_attributes.age);
+        searchArray.push("radio_attributes.wifi=" + $scope.radio_attributes.wifi);
+        if (angular.isUndefined($rootScope.findString)) {
+            $rootScope.findString = "Food";
         }
         //console.log($scope.radio_attributes.wifi);
-        var url = 'http://localhost:8080/demoproject/webapi/business/business_search/'+$rootScope.searchCities+'/'+$rootScope.findString;
+        var url = 'http://localhost:8080/demoproject/webapi/business/business_search/' + $rootScope.searchCities + '/' + $rootScope.findString;
         console.log(url);
         var searchParams = searchArray.join();
         console.log(searchParams);
@@ -325,7 +325,11 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
                 searchParams
             }
         }).success(function(data) {
-            $scope.BusinessList = data;
+            if (data.length > 0){
+                $scope.isDataFound = true;
+            }
+                $scope.BusinessList = data;
+
 
 
         }).error(function(data) {
@@ -333,7 +337,7 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
         });
     }
 
-     $scope.openBusinessProfile = function(businessId) {
+    $scope.openBusinessProfile = function(businessId) {
         console.log(businessId);
         $state.go('businessProfile', {
             businessID: businessId
@@ -341,7 +345,11 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
     }
 
 
+    $scope.$on('eventName', function(event, args) {
+        $scope.message = args.message;
+        console.log($scope.message);
+        $scope.search();
+    });
 
-$scope.search();
-
+    $scope.search();
 });
