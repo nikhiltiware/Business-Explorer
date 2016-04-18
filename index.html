@@ -151,7 +151,10 @@
 
                 <div class="padding-30-left col-xs-2 navbar-brand page-scroll">Start Exploring</div>
                 <div class="col-xs-3 vcenter">
-                    <input ng-if="!isHome" data-toggle="dropdown" type="text" class="form-control" placeholder="Find">
+                    <input ng-if="!isHome" ng-model="$root.findString" ng-click="openFindDropDown()" data-toggle="dropdown" type="text" class="form-control" placeholder="Find">
+                     <ul ng-if="!isHome" class="dropdown-menu col-md-12 list-height" role="menu" ng-show="findList">
+                        <li role="menuitem" class="listOfCities" ng-repeat="x in findTypes | filter: findString" ng-click="setFindBox(x)">{{x}}</li>
+                    </ul>
                 </div>
                 <div class="col-xs-2 vcenter">
 

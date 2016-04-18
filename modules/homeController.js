@@ -22,6 +22,18 @@ businessApp.controller('homeController', function($scope, $rootScope, $http, $st
         }
 
     }
+
+    $scope.findTypes=["Food","Restaurants","Shopping","Active Life","Arts & Entertainment", "Automotive", "Beauty & Spas", "Education", "Event Planning & Services", "Health & Medical", "Home Services", "Local Services"];
+
+    $scope.findList= false;
+    $scope.openFindDropDown = function(){
+        $scope.findList= true;
+    }
+    $scope.setFindBox=function(searchString){
+       $rootScope.findString=searchString.trim();
+       $scope.findList= false;
+    }
+
     $scope.openCityDropDown = function(){
          $scope.citiesList= true;
 
