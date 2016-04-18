@@ -13,7 +13,7 @@ businessApp.controller('WeekMonthChartController', function($scope, $rootScope, 
     };
     var getWeelyData = function(category) {
         var city = $rootScope.searchCities;
-         $scope.dailyTrendsHourCategoryDistributionCategory = category;
+         $scope.weeklyTrendsHourCategoryDistributionCategory = category;
 
         var url = 'http://localhost:8080/demoproject/webapi/trends/weekly_checkin/'+ city + '/' + category;
 

@@ -12,7 +12,7 @@ businessApp.controller('hourlyTrendsPieChartController', function($scope, $rootS
     $scope.drawChart = function(day) {
 
         // var day='0';
-        var city = 'Las Vegas';
+        var city = $rootScope.searchCities;
         var category = 'Food';
         var url1 = 'http://localhost:8080/demoproject/webapi/trends/day_checkin/' + city + '/' + day;
         var url2 = 'http://localhost:8080/demoproject/webapi/trends/daily_checkin/' + city + '/' + category;

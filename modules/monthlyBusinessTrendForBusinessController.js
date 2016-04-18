@@ -12,7 +12,7 @@ businessApp.controller('monthlyBusinessTrendForBusinessController', function($sc
     $scope.monthlyBusinessTrendForBusinessDrawChart = function() {
 
         // var day='0';
-        var city = 'Las Vegas';
+        var city = $rootScope.searchCities;
         var businessID = $scope.businessId;
         var url1 = 'http://localhost:8080/demoproject/webapi/business/'+businessID+'/monthly_trends';
 
