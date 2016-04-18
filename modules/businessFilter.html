@@ -1,11 +1,15 @@
 <div ng-controller="businessFilterController">
-    <div class="row padding-50 padding-85-top">
+    <div class="row padding-50 padding-85-top no-padding-bottom">
 
+
+    </div>
+    <div class="col-md-12 padding-30-left">
+    <div class="col-md-12 row"><h3>{{$root.findString}} in {{$root.searchCities}}</h3></div>
         <button type="button" class="btn btn-default" ng-click="toggleCollapsed()">Advanced Search</button>
         <hr>
         <div uib-collapse="isCollapsed" ng-model="isCollapsed" class="form-group">
-            <div class="well well-lg row ">
-
+            <div class="well well-lg">
+                <div class="row">
                 <div class="col-xs-2">
                     <h5><b>Food and Drinks</b></h5>
                     <div ng-repeat="attribute in restaurant_attributes">
@@ -15,8 +19,7 @@
 
                     </div>
                     <!---->
-                    <button type="button" class="btn btn-primary" ng-click="search(); toggleCollapsed()">Search</button>
-                    <button type="button" class="btn btn-primary" ng-click="uncheckAll()">Uncheck All</button>
+
                 </div>
                 <div class="col-xs-2">
                     <h5><b>Music</b></h5>
@@ -113,13 +116,14 @@
 
 
                 </div>
-
+                </div>
+                <div class="row">
+                      <button type="button" class="btn btn-primary" ng-click="search(); toggleCollapsed()">Search</button>
+                    <button type="button" class="btn btn-primary" ng-click="uncheckAll()">Uncheck All</button>
+                </div>
 
             </div>
         </div>
-    </div>
-
-
     <div class="panel panel-default col-xs-8 ">
         <div class="panel-body" style="max-height: 574px ">
             <!--overflow-y: scroll;">-->
@@ -146,6 +150,7 @@
             </div>
         </div>
     </div>
+</div>
 
 
 

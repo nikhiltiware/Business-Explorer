@@ -1,4 +1,4 @@
-businessApp.controller('monthlyBusinessTrendForBusinessController', function($scope, $http) {
+businessApp.controller('monthlyBusinessTrendForBusinessController', function($scope, $rootScope, $http, $stateParams, $state) {
 
     $scope.ismonthlyBusinessTrendForBusinessDataLoaded = false;
     $scope.monthlyBusinessTrendForBusinessStatus = {

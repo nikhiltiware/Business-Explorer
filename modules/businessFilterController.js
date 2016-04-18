@@ -312,7 +312,9 @@ businessApp.controller('businessFilterController', function($scope, $rootScope, 
         searchArray.push("radio_attributes.price="+$scope.radio_attributes.price);
         searchArray.push("radio_attributes.age="+$scope.radio_attributes.age);
         searchArray.push("radio_attributes.wifi="+$scope.radio_attributes.wifi);
-
+        if(angular.isUndefined($rootScope.findString)){
+            $rootScope.findString= "Food";
+        }
         //console.log($scope.radio_attributes.wifi);
         var url = 'http://localhost:8080/demoproject/webapi/business/business_search/'+$rootScope.searchCities+'/'+$rootScope.findString;
         console.log(url);
