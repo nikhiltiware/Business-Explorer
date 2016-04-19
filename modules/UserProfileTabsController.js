@@ -28,14 +28,17 @@ businessApp.controller('UserProfileTabsController', function($scope, $rootScope,
         $scope.friends = [];
         var frndList = $scope.friendsList;
         var frndobjects = [];
+        var numberOfFriends = $scope.friendsList.length;
+        if($scope.friendsList.length>30)
+         numberOfFriends = 30;
         var count = 0;
-        for (var i = 0; i < frndList.length; i++) {
+        for (var i = 0; i < numberOfFriends; i++) {
             var tempId = frndList[i].trim().substring(1, frndList[i].length - 2);
             var url = 'http://localhost:8080/demoproject/webapi/reviewer/' + tempId;
             $http.get(url).success(function(data) {
                 if (data != "")
                     frndobjects.push(data);
-                if (count == frndList.length - 1) getFriendsCount(frndobjects);
+                if (count == numberOfFriends - 1) getFriendsCount(frndobjects);
                 count++;
             }).error(function(data) {
                 console.log(data);
