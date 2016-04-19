@@ -57,7 +57,7 @@ businessApp.controller('businessCategoryTrendsController', function($scope, $roo
 
 $scope.businessCategoryTrendsData=[
             {
-                "key": "Average Number of Stars",
+                "key": "Average Stars",
                 "color": "#d62728",
                 "values": $scope.businessCategoryTrendsData
             }];
