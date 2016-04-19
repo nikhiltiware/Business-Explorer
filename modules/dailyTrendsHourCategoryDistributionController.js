@@ -22,21 +22,29 @@ businessApp.controller('dailyTrendsHourCategoryDistributionController', function
         //var category = 'Food';
         //  var url1 = 'http://localhost:8080/demoproject/webapi/trends/day_checkin/' + city + '/' + day;
         var url2 = 'http://localhost:8080/demoproject/webapi/trends/daily_checkin/' + city + '/' + category;
-        $scope.dailyTrendsHourCategoryDistributionDayName = 'Sunday';
+        //$scope.dailyTrendsHourCategoryDistributionDayName = 'Sunday';
+
         if (day == 0) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Sunday';
+            $scope.dayNumber = 0;
         } else if (day == 1) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Monday';
+            $scope.dayNumber = 1;
         } else if (day == 2) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Tuesday';
+            $scope.dayNumber = 2;
         } else if (day == 3) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Wednesday';
+            $scope.dayNumber = 3;
         } else if (day == 4) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Thursday';
+            $scope.dayNumber = 4;
         } else if (day == 5) {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Friday';
+            $scope.dayNumber = 5;
         } else {
             $scope.dailyTrendsHourCategoryDistributionDayName = 'Saturday';
+            $scope.dayNumber = 6;
         }
 
 
