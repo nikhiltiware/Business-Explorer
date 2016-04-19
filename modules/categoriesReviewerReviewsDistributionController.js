@@ -73,7 +73,7 @@ var propArray= $scope.categoriesReviewerReviewsDistributionData.map(function(a) 
             },
             subtitle: {
                 enable: true,
-                text: 'This bar chart shows the ratings (No. of Stars) provided by the user to various categories',
+                text: 'This bar chart shows the Number of Reviews provided by the user to various categories',
                 css: {
                     'text-align': 'center',
                     'margin': '10px 13px 0px 7px'
@@ -84,7 +84,7 @@ var propArray= $scope.categoriesReviewerReviewsDistributionData.map(function(a) 
 
 $scope.categoriesReviewerReviewsDistributionData=[
             {
-                "key": "Number of Stars",
+                "key": "Number of Reviews",
                 "color": "#d62728",
                 "values": $scope.categoriesReviewerReviewsDistributionData
             }];

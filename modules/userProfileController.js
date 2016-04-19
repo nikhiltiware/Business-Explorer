@@ -23,7 +23,18 @@ businessApp.controller('userProfileController', function($scope, $rootScope, $ht
         //console.log($scope.friendsCount);
     };
 
+    var getFriendsCountToDisplay = function() {
+        var url = 'http://localhost:8080/demoproject/webapi/reviewer/'+$scope.userId+'/reviews';
+
+        $http.get(url).success(function(data) {
+            $scope.FriendsCountToDisplay = data.length;
+            //console.log($scope.reviewerData);
+        }).error(function(data) {
+            $scope.FriendsCountToDisplay = data.length;
+        });
+    };
     getReviewer();
+    getFriendsCountToDisplay();
 
 
 });
