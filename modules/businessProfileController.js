@@ -140,6 +140,12 @@ businessApp.controller('businessProfileController', function($scope, $http, $sta
 
     getBusiness();
 
+    this.openReviewerProfile = function(userId) {
+        console.log(userId);
+        $state.go('reviewerProfile', {
+            userID: userId
+        });
+    }
 
 
 });

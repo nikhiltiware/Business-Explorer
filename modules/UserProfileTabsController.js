@@ -67,6 +67,20 @@ businessApp.controller('UserProfileTabsController', function($scope, $rootScope,
         return this.tab === checkTab;
     };
 
+    this.openBusinessProfile = function(businessId) {
+        //console.log(businessId);
+        $state.go('businessProfile', {
+            businessID: businessId
+        });
+    }
+
+    this.openReviewerProfile = function(userId) {
+        console.log(userId);
+        $state.go('reviewerProfile', {
+            userID: userId
+        });
+    }
+
     initializer();
 
 });

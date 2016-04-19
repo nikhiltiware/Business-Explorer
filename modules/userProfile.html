@@ -110,14 +110,14 @@
                     </div>
                     <div id="reviewTab" ng-show="tabsCtrl.isSelected(2)">
 
-                        <ul class="media-list">
+                        <ul class="media-list mouse-pointer">
                             <li class="media " ng-repeat="review in userReviews">
                                 <div class="media-left">
-                                    <a href="#">
+                                    <a href>
                                         <img class="media-object" src="images/category_food.png" alt="food">
                                     </a>
                                 </div>
-                                <div class="media-body">
+                                <div class="media-body" ng-click="tabsCtrl.openBusinessProfile(review.BUSINESS_ID)">
                                     <div class="media-heading">{{review.NAME}}</div>
 
                                     <uib-rating ng-model=review.STARS max=5 read-only=true></uib-rating> <span>{{review.REVIEW_DATE}}</span>
@@ -132,14 +132,14 @@
 
                     <div id="tipTab" ng-show="tabsCtrl.isSelected(3)">
 
-                        <ul class="media-list">
+                        <ul class="media-list mouse-pointer">
                             <li class="media " ng-repeat="tip in userTips">
                                 <div class="media-left">
                                     <a href="#">
                                         <img class="media-object" src="images/category_food.png" alt="food">
                                     </a>
                                 </div>
-                                <div class="media-body">
+                                <div class="media-body" ng-click="tabsCtrl.openBusinessProfile(review.BUSINESS_ID)">
                                     <div class="media-heading">{{tip.NAME}}</div>
 
                                     <uib-rating ng-model=tip.STARS max=5 read-only=true></uib-rating> <span>{{tip.TIP_DATE}}</span>
@@ -154,14 +154,14 @@
 
                     </div>
                     <div id="friendsTab" ng-show="tabsCtrl.isSelected(4)">
-                        <ul class="media-list">
+                        <ul class="media-list mouse-pointer">
                             <li class="media " ng-repeat="friend in friends">
                                 <div class="media-left">
-                                    <a href="#">
+                                    <a>
                                         <img class="media-object" src="images/user_profile.jpg" style="width:80px; height: 80px" alt="food">
                                     </a>
                                 </div>
-                                <div class="media-body">
+                                <div class="media-body" ng-click="tabsCtrl.openReviewerProfile(friend.USER_ID)">
                                     <h4 class="media-heading">{{friend.NAME}}</h4>
                                     <div style="padding: 5px">
                                         <span style="padding: 5px">
